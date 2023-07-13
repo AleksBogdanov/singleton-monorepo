@@ -13,7 +13,7 @@ jobs:
     name: Check Header
     needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
-    uses: ./.github/workflows/check.yml@devops
+    uses: ./.github/workflows/check.yml
 
   unit-test:
     name: Unit Test
