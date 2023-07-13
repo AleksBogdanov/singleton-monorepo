@@ -9,9 +9,11 @@ on:
     paths: 
     - 'g11n-python-client/**'
     - 'server/**'
+    
 defaults:
   run:
     working-directory: ./g11n-python-client
+
 
 jobs:
   pre-process:
