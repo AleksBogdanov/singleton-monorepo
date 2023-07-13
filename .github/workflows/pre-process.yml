@@ -12,9 +12,9 @@ jobs:
           fetch-depth: 2.
       - name: Get commit range
         id: get-commit-range-action
-        uses: ./.github/actions/get-commit-range-action@devops
+        uses: ./.github/actions/get-commit-range-action
       - name: Were only docs updated
         id: were-only-docs-updated-action
-        uses: ./.github/actions/were-only-docs-updated-action@devops
+        uses: ./.github/actions/were-only-docs-updated-action
         with:
           commit-range: ${{ steps.get-commit-range-action.outputs.commit-range }}
