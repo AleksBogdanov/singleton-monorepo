@@ -11,6 +11,8 @@ jobs:
 
   check-header:
     name: Check Header
+    runs-on: ubuntu-latest
+
     needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
     steps:
