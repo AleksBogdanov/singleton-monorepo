@@ -1,0 +1,259 @@
+{
+  "mappings": [
+    {
+      "id": "componentMessages-zh-Hans-sunglow",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/zh-Hans/components/sunglow",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "ETag": "1234567890",
+          "Cache-Control": "s-maxage=1221965, max-age=1221965"
+        },
+        "bodyFileName": "componentMessages-zh-Hans-sunglow.json"
+      }
+    },
+    {
+      "id": "componentMessages-zh-Hans-sunglow-sendCC",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/zh-Hans/components/sunglow",
+        "method": "GET",
+        "headers": {
+          "If-None-Match": "1234567890"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "ETag": "0987654321",
+          "Cache-Control": "s-maxage=1221965, max-age=2334"
+        },
+        "bodyFileName": "componentMessages-zh-Hans-sunglow.json"
+      }
+    },
+    {
+      "id": "componentMessages-zh-Hans-HTTP304",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/zh-Hans/components/sunglow",
+        "method": "GET",
+        "headers": {
+          "If-None-Match": "0987654321"
+        }
+      },
+      "response": {
+        "status": 304,
+        "headers": {
+          "ETag": "0987654321",
+          "Cache-Control": "s-maxage=1221965, max-age=3445"
+        },
+        "bodyFileName": "componentMessages-zh-Hans-sunglow-HTTP304.json"
+      }
+    },
+    {
+      "id": "componentMessages-en-sunglow",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/en/components/sunglow",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-en-sunglow.json"
+      }
+    },
+    {
+      "id": "componentMessages-fr-sunglow",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/fr/components/sunglow",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-fr-sunglow.json"
+      }
+    },
+    {
+      "id": "componentMessages-latest-sunglow",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/latest/components/sunglow",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-latest-sunglow.json"
+      }
+    },
+    {
+      "id": "componentMessages-zh-Hans-users",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/zh-Hans/components/users",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-zh-Hans-users.json"
+      }
+    },
+    {
+      "id": "componentMessages-en-users",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/en/components/users",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-en-users.json"
+      }
+    },
+    {
+      "id": "componentMessages-fr-users",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/fr/components/users",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-fr-users.json"
+      }
+    },
+    {
+      "id": "componentMessages-latest-users",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/latest/components/users",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-latest-users.json"
+      }
+    },
+    {
+      "id": "componentMessages-zh-Hans-comp-notexist",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/zh-Hans/components/comp-notexist",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-zh-Hans-comp-notexist.json"
+      }
+    },
+    {
+      "id": "componentMessages-latest-comp-notexist",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/latest/components/comp-notexist",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-zh-Hans-comp-notexist.json"
+      }
+    },
+    {
+      "id": "componentMessages-xxx-sunglow",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/xxx/components/sunglow",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-zh-Hans-comp-notexist.json"
+      }
+    },
+    {
+      "id": "HTTPHeader",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/zh-Hans/components/headertest",
+        "method": "GET",
+        "headers": {
+          "user": "test_user",
+          "pass": "goodpadd"
+        }
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-zh-Hans-sunglow.json"
+      }
+    },
+    {
+      "id": "componentMessages-zh-Hans-sunglow-WrongResponseContent",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/zh-Hans/components/WrongResponseContent",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-zh-Hans-WrongResponseContent.json"
+      }
+    },
+    {
+      "id": "componentMessages-zh-Hans-sunglow-ResponsePartial",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/zh-Hans/components/ResponsePartial",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-zh-Hans-ResponsePartial.json"
+      }
+    },
+    {
+      "id": "RefreshCache",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/RefreshCache/components/sunglow",
+        "method": "GET",
+        "times": 1
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-RefreshCache-sunglow.json"
+      }
+    },
+    {
+      "id": "RefreshCacheSecondTime",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/RefreshCache/components/sunglow",
+        "method": "GET",
+        "times": 1
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-RefreshCacheSecondTime-sunglow.json"
+      }
+    },
+    {
+      "id": "HTTP404",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/zh-Hans/components/HTTP404",
+        "method": "GET"
+      },
+      "response": {
+        "status": 404,
+        "bodyFileName": "componentMessages-zh-Hans-HTTP404.json"
+      }
+    },
+    {
+      "id": "componentMessages-zh-Hans-sunglow-decodeerror",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.0/locales/zh-Hans/components/sunglow",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-zh-Hans-sunglow-decodeerror.json"
+      }
+    },
+    {
+      "id": "componentMessages-versionfallback",
+      "request": {
+        "url": "/i18n/api/v2/translation/products/SgtnTest/versions/1.0.1/locales/latest/components/sunglow",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "componentMessages-versionfallback.json"
+      }
+    }
+  ]
+}

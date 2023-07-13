@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'singleton-client', path: '..'
+
+gem 'coderay'
+gem 'haml', '~> 5.2.2'
+gem 'multi_json'
+gem 'pry-byebug'
+gem 'pry-inline'
+gem 'sinatra'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw]

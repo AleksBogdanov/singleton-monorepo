@@ -1,0 +1,26 @@
+test: &default
+
+  # #Product Name
+  product_name: test
+
+  # # bundle version
+  version: 4.8
+
+  # # Singleton server
+  vip_server: https://server:8090
+
+  # # translation bundle Path
+  translation_bundle: ./spec/config/locales/l10n/bundles
+
+  # # source bundle Path
+  source_bundle: ./spec/config/locales/default
+
+  # # memory cache's expration(minutes), default value is 24*60
+  cache_expiry_period: 36t
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+  mode: live
