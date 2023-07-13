@@ -10,10 +10,9 @@ jobs:
           fetch-depth: 2.
       - name: Get commit range
         id: get-commit-range-action
-        uses: vmware/singleton/.github/actions/get-commit-range-action@devops
+        uses: ./.github/actions/get-commit-range-action@devops
       - name: Check header
         run: |
-          git clone --branch=devops https://github.com/vmware/singleton.git devops
           cp $GITHUB_WORKSPACE/devops/check_headers.py .
           chmod +x check_headers.py
           git diff ${{ steps.get-commit-range-action.outputs.commit-range }} --stat
