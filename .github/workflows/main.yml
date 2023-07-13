@@ -1,8 +1,5 @@
 name: main
 on: [pull_request, push]
-defaults:
-  run:
-    working-directory: ./server
 
 jobs:
   pre-process:
