@@ -14,6 +14,14 @@ jobs:
     needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
     uses: ./.github/workflows/check.yml
+    steps:
+      - name:
+        uses: actions/checkout@v3
+        with:
+          sparse-checkout: './server'
+      - name: 
+        run: |
+          ls -la
 
   unit-test:
     name: Unit Test
