@@ -17,9 +17,17 @@ jobs:
         uses: actions/checkout@v3
         with:
           sparse-checkout: './server'
-      - name: 
+      - name: Get commit range
+        id: get-commit-range-action
+        uses: ./.github/actions/get-commit-range-action
+      - name: Check header
         run: |
-          ls -la
+          cp $GITHUB_WORKSPACE/devops/check_headers.py .
+          chmod +x check_headers.py
+          git diff ${{ steps.get-commit-range-action.outputs.commit-range }} --stat
+          git diff --name-only --diff-filter=d ${{ steps.get-commit-range-action.outputs.commit-range }}
+          python ./check_headers.py -f "$(git diff --name-only --diff-filter=d ${{ steps.get-commit-range-action.outputs.commit-range }})"
+
 
   unit-test:
     name: Unit Test
