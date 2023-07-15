@@ -18,7 +18,8 @@ jobs:
         with:
           sparse-checkout: |
             './server'
-            './.github
+            './.github'
+            './devops'
       - name: Get commit range
         id: get-commit-range-action
         uses: ./.github/actions/get-commit-range-action
@@ -29,7 +30,6 @@ jobs:
           git diff ${{ steps.get-commit-range-action.outputs.commit-range }} --stat
           git diff --name-only --diff-filter=d ${{ steps.get-commit-range-action.outputs.commit-range }}
           python ./check_headers.py -f "$(git diff --name-only --diff-filter=d ${{ steps.get-commit-range-action.outputs.commit-range }})"
-
 
   unit-test:
     name: Unit Test
