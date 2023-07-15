@@ -1,2 +1,0 @@
-git clone --branch=g11n-csharp-client https://github.com/Aleksbogdan
-ov12/singleton.git csharp-client

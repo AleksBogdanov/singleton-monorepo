@@ -1,9 +1,0 @@
-{
-  "component" : "TranslationNotReady",
-  "messages" : {
-  	"messages.welcome" : "herzlich willkommen",
-    "translation.available" : "Die Übersetzung ist für diese Komponente fertig.",
-  	"messages.hello" : "Hallo"
-  },
-  "locale" : "de"
-}

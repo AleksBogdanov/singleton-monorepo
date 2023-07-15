@@ -1,7 +1,0 @@
-{
-  "component" : "about",
-  "locale" : "es",
-  "messages" : {
-    "about.message" : "test_value_change"
-  }
-}

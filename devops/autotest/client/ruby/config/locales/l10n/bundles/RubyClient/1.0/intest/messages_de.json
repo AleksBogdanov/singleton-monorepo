@@ -1,9 +1,0 @@
-{
-  "component": "intest", 
-  "messages": {
-    "intest.key1": "add value de 1", 
-    "intest.key2": "add value de 2", 
-    "intest.key3": "add value de 3"
-  }, 
-  "locale": "de"
-}

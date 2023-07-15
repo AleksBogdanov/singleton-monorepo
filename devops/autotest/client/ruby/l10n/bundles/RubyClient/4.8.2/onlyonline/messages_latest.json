@@ -1,9 +1,0 @@
-{
-    "component":"contact",
-    "messages":{
-        "contact.title":"Contact",
-        "contact.message":"Your contact page.",
-        "contact.applicationname":"Singleton Sample Web Application"
-    },
-    "locale":"latest"
-}
