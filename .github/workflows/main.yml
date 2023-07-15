@@ -16,7 +16,9 @@ jobs:
       - name:
         uses: actions/checkout@v3
         with:
-          sparse-checkout: './server'
+          sparse-checkout: |
+            './server'
+            './.github
       - name: Get commit range
         id: get-commit-range-action
         uses: ./.github/actions/get-commit-range-action
