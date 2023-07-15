@@ -16,10 +16,7 @@ jobs:
       - name:
         uses: actions/checkout@v3
         with:
-          sparse-checkout: |
-            './server'
-            './.github'
-            './devops'
+          sparse-checkout: 'server'
       - name: Get commit range
         run: ls -la
       - name: Check header
