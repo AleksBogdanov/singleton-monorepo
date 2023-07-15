@@ -21,8 +21,7 @@ jobs:
             './.github'
             './devops'
       - name: Get commit range
-        id: get-commit-range-action
-        uses: ./.github/actions/get-commit-range-action
+        run: ls -la
       - name: Check header
         run: |
           cp $GITHUB_WORKSPACE/devops/check_headers.py .
