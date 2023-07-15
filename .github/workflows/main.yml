@@ -135,7 +135,7 @@ jobs:
           git clone --branch=devops --depth=1 https://github.com/vmware/singleton.git devops
           cd $GITHUB_WORKSPACE/g11n-ws && ./gradlew build -x test
           ls -la
-
+          pwd
           cp $GITHUB_WORKSPACE/devops/deploy/i18n-service/Dockerfile $GITHUB_WORKSPACE/publish/
           cd $GITHUB_WORKSPACE/publish && ls
           mv singleton-[0~9]*.jar i18n-service.jar && ls
@@ -176,6 +176,7 @@ jobs:
       - name: Performance Test
         run: |
           ls -la
+          pwd
           git clone --branch=devops --depth=1 https://github.com/vmware/singleton.git devops
           cd $GITHUB_WORKSPACE/g11n-ws && ./gradlew build -x test
           cp $GITHUB_WORKSPACE/devops/performancetest/Dockerfile $GITHUB_WORKSPACE/publish/
