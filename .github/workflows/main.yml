@@ -1,7 +1,9 @@
 name: main
 on: [pull_request, push]
 
-
+defaults:
+  run:
+    working-directory: ./server  
 jobs:
   pre-process:
     name: Pre-process
@@ -17,9 +19,6 @@ jobs:
   unit-test:
     name: Unit Test
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./server  
     needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
     steps:
@@ -54,10 +53,7 @@ jobs:
     name: Security Analysis
     runs-on: ubuntu-latest
     needs: pre-process
-    if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
-    defaults:
-      run:
-        working-directory: ./server  
+    if: needs.pre-process.outputs.were-only-docs-updated != 'yes' 
     permissions:
       actions: read
       contents: read
@@ -84,9 +80,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
-    defaults:
-      run:
-        working-directory: ./server  
     permissions:
       actions: read
       contents: read
@@ -117,9 +110,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
-    defaults:
-      run:
-        working-directory: server
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -133,9 +123,7 @@ jobs:
       - name: Smoke Test
         run: |
           git clone --branch=devops --depth=1 https://github.com/vmware/singleton.git devops
-          cd $GITHUB_WORKSPACE/g11n-ws && ./gradlew build -x test
-          ls -la
-          pwd
+          cd $GITHUB_WORKSPACE//server/g11n-ws && ./gradlew build -x test
           cp $GITHUB_WORKSPACE/server/devops/deploy/i18n-service/Dockerfile $GITHUB_WORKSPACE/server/publish/
           cd $GITHUB_WORKSPACE/publish && ls
           mv singleton-[0~9]*.jar i18n-service.jar && ls
@@ -156,9 +144,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
-    defaults:
-      run:
-        working-directory: server  
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -175,15 +160,12 @@ jobs:
           python-version: '3.10'
       - name: Performance Test
         run: |
-          ls -la
           git clone --branch=devops --depth=1 https://github.com/vmware/singleton.git devops
           cd $GITHUB_WORKSPACE/server/g11n-ws && ./gradlew build -x test
-          ls -la
-          
-          cp $GITHUB_WORKSPACE/server/devops/performancetest/Dockerfile $GITHUB_WORKSPACE/publish/
-          cd $GITHUB_WORKSPACE/publish && ls
+          cp $GITHUB_WORKSPACE/server/devops/performancetest/Dockerfile $GITHUB_WORKSPACE//server/publish/
+          cd $GITHUB_WORKSPACE//server/publish && ls
           mv singleton-[0~9]*.jar i18n-service.jar && ls
-          cp -r $GITHUB_WORKSPACE/devops/server/performancetest/resource/l10n l10n
+          cp -r $GITHUB_WORKSPACE//server/devops/performancetest/resource/l10n l10n
           docker build -t singleton .
           docker run -d -p 8090:8090 --name singleton singleton
           docker ps
