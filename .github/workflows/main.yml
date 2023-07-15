@@ -161,7 +161,7 @@ jobs:
         run: |
           git clone --branch=devops --depth=1 https://github.com/vmware/singleton.git devops
           cd $GITHUB_WORKSPACE/server/g11n-ws && ./gradlew build -x test
-          cp $GITHUB_WORKSPACE/server/devops/performancetest/Dockerfile $GITHUB_WORKSPACE//server/publish/
+          cp $GITHUB_WORKSPACE/server/devops/performancetest/Dockerfile $GITHUB_WORKSPACE/server/publish/
           cd $GITHUB_WORKSPACE//server/publish && ls
           mv singleton-[0~9]*.jar i18n-service.jar && ls
           cp -r $GITHUB_WORKSPACE//server/devops/performancetest/resource/l10n l10n
