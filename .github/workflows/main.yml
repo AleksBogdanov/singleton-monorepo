@@ -9,11 +9,11 @@ jobs:
     name: Pre-process
     uses: aleksbogdanov12/singleton-monorepo/.github/workflows/pre-process.yml@devops
 
-  # check-header:
-  #   name: Check Header
-  #   needs: pre-process
-  #   if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
-  #   uses: aleksbogdanov12/singleton-monorepo/.github/workflows/check.yml@devops
+  check-header:
+    name: Check Header
+    needs: pre-process
+    if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
+    uses: aleksbogdanov12/singleton-monorepo/.github/workflows/check.yml@devops
 
 
   unit-test:
@@ -34,10 +34,6 @@ jobs:
       - name: Unit test
         run: |
           cd $GITHUB_WORKSPACE/server/g11n-ws && ./gradlew test jacocoTestReport
-      - name: a
-        run: |
-          ls -la
-          
       - name: Upload Codecov report for vip-manager-i18n
         uses: codecov/codecov-action@v3
         with:
