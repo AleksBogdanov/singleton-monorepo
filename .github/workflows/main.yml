@@ -136,13 +136,13 @@ jobs:
           cd $GITHUB_WORKSPACE/g11n-ws && ./gradlew build -x test
           ls -la
           pwd
-          cp $GITHUB_WORKSPACE/devops/deploy/i18n-service/Dockerfile $GITHUB_WORKSPACE/publish/
+          cp $GITHUB_WORKSPACE/server/devops/deploy/i18n-service/Dockerfile $GITHUB_WORKSPACE/publish/
           cd $GITHUB_WORKSPACE/publish && ls
           mv singleton-[0~9]*.jar i18n-service.jar && ls
           docker build -t singleton .
           docker run -d -p 8090:8090 --name singleton singleton
           docker ps
-          cd $GITHUB_WORKSPACE/devops/autotest/service/i18n-service/APITest && $GITHUB_WORKSPACE/g11n-ws/gradlew build
+          cd $GITHUB_WORKSPACE/server.devops/autotest/service/i18n-service/APITest && $GITHUB_WORKSPACE/g11n-ws/gradlew build
           docker cp l10n singleton:/
           str=$(printf '=%.0s' {1..50})
           echo $str Smoke Test Start $str
@@ -179,14 +179,14 @@ jobs:
           pwd
           git clone --branch=devops --depth=1 https://github.com/vmware/singleton.git devops
           cd $GITHUB_WORKSPACE/g11n-ws && ./gradlew build -x test
-          cp $GITHUB_WORKSPACE/devops/performancetest/Dockerfile $GITHUB_WORKSPACE/publish/
+          cp $GITHUB_WORKSPACE/server/devops/performancetest/Dockerfile $GITHUB_WORKSPACE/publish/
           cd $GITHUB_WORKSPACE/publish && ls
           mv singleton-[0~9]*.jar i18n-service.jar && ls
-          cp -r $GITHUB_WORKSPACE/devops/performancetest/resource/l10n l10n
+          cp -r $GITHUB_WORKSPACE/devops/server/performancetest/resource/l10n l10n
           docker build -t singleton .
           docker run -d -p 8090:8090 --name singleton singleton
           docker ps
           str=$(printf '=%.0s' {1..50})
-          cd $GITHUB_WORKSPACE/devops/performancetest
+          cd $GITHUB_WORKSPACE/server/devops/performancetest
           pip install -r requirements.txt
           python performance.py
