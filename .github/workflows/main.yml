@@ -31,8 +31,11 @@ jobs:
           java-version: '17'
       - name: Unit test
         run: |
-          cd $GITHUB_WORKSPACE/server/g11n-ws
-          ./gradlew test jacocoTestReport
+          cd $GITHUB_WORKSPACE/server/g11n-ws && ./gradlew test jacocoTestReport
+      - name: a
+        run: |
+          ls -la
+          
       - name: Upload Codecov report for vip-manager-i18n
         uses: codecov/codecov-action@v3
         with:
@@ -70,6 +73,8 @@ jobs:
           java-version: '17'
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
+        with:
+          languages: java
       - name: Autobuild
         uses: github/codeql-action/autobuild@v2
       - name: Perform CodeQL Analysis
