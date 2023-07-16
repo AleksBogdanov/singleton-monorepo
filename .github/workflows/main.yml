@@ -120,7 +120,7 @@ jobs:
           cd $GITHUB_WORKSPACE/server/g11n-ws && ./gradlew build -x test
           ls -la 
           cp $GITHUB_WORKSPACE/server/devops/deploy/i18n-service/Dockerfile $GITHUB_WORKSPACE/server/publish/
-          cd $GITHUB_WORKSPACE/publish && ls
+          cd $GITHUB_WORKSPACE/server/publish && ls
           mv singleton-[0~9]*.jar i18n-service.jar && ls
           docker build -t singleton .
           docker run -d -p 8090:8090 --name singleton singleton
