@@ -1,5 +1,14 @@
 name: main
-on: [pull_request, push]
+
+on:
+  push:
+    paths:
+    - '.github/workflows/main.yml'
+    - 'server/**'
+  pull_request:
+    paths: 
+    - '.github/workflows/main.yml'
+    - 'server/**'
 
 defaults:
   run:
