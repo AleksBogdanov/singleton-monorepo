@@ -62,8 +62,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          sparse-checkout: server
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
@@ -85,11 +83,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        sparse-checkout: server
 
     - name: Run Codacy Analysis CLI
       uses: codacy/codacy-analysis-cli-action@master
       with:
-        directory: server
         verbose: true
         output: results.sarif
         format: sarif
