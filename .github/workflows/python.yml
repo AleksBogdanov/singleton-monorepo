@@ -12,7 +12,7 @@ on:
 
 defaults:
   run:
-    working-directory: ./g11n-python-client
+    working-directory: g11n-python-client
 
 jobs:
   pre-process:
@@ -25,15 +25,6 @@ jobs:
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
     uses: vmware/singleton/.github/workflows/check.yml@devops
 
-  woke:
-    needs: pre-process
-    name: Inclusive Term Scan
-    if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
-    uses: vmware/singleton/.github/workflows/woke.yml@devops
-    with:
-      # Set to true, when you have successfully replaced all the words.
-      fail-on-error: false
-
   unit-test:
     name: Unit Test
     runs-on: ubuntu-latest
@@ -42,6 +33,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          sparse-checkout: g11n-python-client
       - name: Setup Python environment
         uses: actions/setup-python@v4
         with:
@@ -76,7 +69,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          sparse-checkout: ./g11n-python-client
+          sparse-checkout: g11n-python-client
       - name: Setup Python environment
         uses: actions/setup-python@v4
         with:
@@ -137,6 +130,11 @@ jobs:
     needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        sparse-checkout: g11n-python-client
+                         server
     - name: Python
       uses: actions/setup-python@v4
       with:
@@ -149,7 +147,6 @@ jobs:
     - name: Smoke Test
       run: |
         sudo apt-get update
-        git clone --branch=master --depth=1 https://github.com/vmware/singleton.git server
         git clone --branch=devops --depth=1 https://github.com/vmware/singleton.git devops
         cp -r $GITHUB_WORKSPACE/devops/autotest/client/python/main/lib/l10n/bundles $GITHUB_WORKSPACE/server/g11n-ws/vip-manager-i18n/src/main/resources/l10n/bundles
         mv $GITHUB_WORKSPACE/devops/autotest/client/python/main/lib/application-bundle.properties $GITHUB_WORKSPACE/server/g11n-ws/vip-manager-i18n/src/main/resources/application-bundle.properties
