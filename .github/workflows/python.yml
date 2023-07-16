@@ -3,10 +3,12 @@ name: Singleton-Python-Client
 on:
   push:
     paths:
+    - '.github/workflows/python.yml'
     - 'g11n-python-client/**'
     - 'server/**'
   pull_request:
     paths: 
+    - '.github/workflows/python.yml'
     - 'g11n-python-client/**'
     - 'server/**'
 
