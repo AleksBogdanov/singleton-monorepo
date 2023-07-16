@@ -148,6 +148,7 @@ jobs:
         java-version: '8'
     - name: Smoke Test
       run: |
+        ls -la
         sudo apt-get update
         git clone --branch=devops --depth=1 https://github.com/vmware/singleton.git devops
         cp -r $GITHUB_WORKSPACE/devops/autotest/client/python/main/lib/l10n/bundles $GITHUB_WORKSPACE/server/g11n-ws/vip-manager-i18n/src/main/resources/l10n/bundles
