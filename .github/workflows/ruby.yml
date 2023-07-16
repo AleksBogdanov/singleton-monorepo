@@ -2,14 +2,14 @@ name: Singleton-Ruby-Client
 on:
   push:
     paths:
-      - '.github/workflows/ruby.yml'
-      - 'g11n-ruby-client/**'
-      - 'server/**'
+    - '.github/workflows/ruby.yml'
+    - 'g11n-ruby-client/**'
+    - 'server/**'
   pull_request:
     paths: 
-      - '.github/workflows/ruby.yml'
-      - 'g11n-ruby-client/**'
-      - 'server/**'
+    - '.github/workflows/ruby.yml'
+    - 'g11n-ruby-client/**'
+    - 'server/**'
   
 defaults:
   run:

@@ -1,12 +1,12 @@
 name: Singleton-Angular-Client
 on:
-push:
-  paths:
+  push:
+    paths:
     - '.github/workflows/angular.yml'
     - 'g11n-angular-client/**'
     - 'server/**'
-pull_request:
-  paths: 
+  pull_request:
+    paths: 
     - '.github/workflows/angular.yml'
     - 'g11n-angular-client/**'
     - 'server/**'
@@ -14,7 +14,7 @@ pull_request:
 defaults:
   run:
     working-directory: g11n-angular-client
-    
+
 jobs:
   pre-process:
     name: Pre process

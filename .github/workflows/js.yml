@@ -8,8 +8,8 @@ on:
     - '.github/workflows/js.yml'
     - 'g11n-js-client/**'
     - 'server/**'
-pull_request:
-  paths: 
+  pull_request:
+    paths: 
     - '.github/workflows/js.yml'
     - 'g11n-js-client/**'
     - 'server/**'
