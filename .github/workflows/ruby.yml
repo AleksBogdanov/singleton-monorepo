@@ -134,17 +134,16 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y openjdk-8-jdk
           export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
-          git clone --branch=master https://github.com/vmware/singleton.git server
-          git clone --branch=devops https://github.com/vmware/singleton.git devops
+          git clone --branch=devops --depth= 1https://github.com/vmware/singleton.git devops
           cd $GITHUB_WORKSPACE/server/g11n-ws && ./gradlew build -x test
-          cp $GITHUB_WORKSPACE/devops/deploy/i18n-service/Dockerfile $GITHUB_WORKSPACE/server/publish/
+          cp $GITHUB_WORKSPACE/g11n-ruby-client/devops/deploy/i18n-service/Dockerfile $GITHUB_WORKSPACE/server/publish/
           cd $GITHUB_WORKSPACE/server/publish && mv singleton-[0~9]*.jar i18n-service.jar
           docker build -t singleton .
           docker run -d -p 8090:8090 -p 8091:8091 --name singleton singleton
           docker ps
           sleep 15s
           mkdir -p $GITHUB_WORKSPACE/l10n/bundles
-          cp -r $GITHUB_WORKSPACE/devops/autotest/client/ruby/l10n/bundles $GITHUB_WORKSPACE/l10n/
+          cp -r $GITHUB_WORKSPACE/g11n-ruby-client/devops/autotest/client/ruby/l10n/bundles $GITHUB_WORKSPACE/l10n/
           docker cp $GITHUB_WORKSPACE/l10n singleton:/
           cd $GITHUB_WORKSPACE
           cp -r $GITHUB_WORKSPACE/devops/autotest/client/ruby/l10n/bundles/* $GITHUB_WORKSPACE/l10n/bundles
@@ -152,4 +151,3 @@ jobs:
           sed -i 's|path => "../../../../ruby_client/singleton|path => "/home/runner/work/singleton/singleton|g' Gemfile
           bundle install
           bundle exec rspec spec
-          
