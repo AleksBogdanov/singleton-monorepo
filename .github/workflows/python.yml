@@ -70,8 +70,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          sparse-checkout: g11n-python-client
       - name: Setup Python environment
         uses: actions/setup-python@v4
         with:
