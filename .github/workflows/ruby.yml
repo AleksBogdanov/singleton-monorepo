@@ -34,7 +34,9 @@ jobs:
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          sparse-checkout: g11n-ruby-client
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
