@@ -11,7 +11,7 @@
     "typings": "./dist/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "https://github.com:vmware/singleton.git g11n-js-client"
+        "url": "https://github.com:aleksbogdanov/singleton-monorepo.git main"
     },
     "bin": {
         "load-translation": "cli/load-i18n-package.js",
