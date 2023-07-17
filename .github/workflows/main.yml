@@ -48,17 +48,17 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           files: ./g11n-ws/vip-manager-i18n/build/reports/jacoco.xml
-          flags: g11n-ws/vip-manager-i18n
+          flags: g11n-ws-vip-manager-i18n
       - name: Upload Codecov report for vip-manager-l10n
         uses: codecov/codecov-action@v3
         with:
           files: ./g11n-ws/vip-manager-l10n/build/reports/jacoco.xml
-          flags: g11n-ws/vip-manager-l10n
+          flags: g11n-ws-vip-manager-l10n
       - name: Upload Codecov report for vip-manager-lite-i18n
         uses: codecov/codecov-action@v3
         with:
           files: ./g11n-ws/vip-manager-lite-i18n/build/reports/jacoco.xml
-          flags: g11n-ws/vip-manager-lite-i18n
+          flags: g11n-ws-vip-manager-lite-i18n
 
   security-analysis:
     name: Security Analysis
