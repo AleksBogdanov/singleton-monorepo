@@ -1,4 +1,5 @@
 name: Singleton-Angular-Client
+
 on:
   push:
     paths:
@@ -14,27 +15,17 @@ on:
 defaults:
   run:
     working-directory: g11n-angular-client
-
 jobs:
   pre-process:
-    name: Pre process
-    runs-on: ubuntu-latest
-    outputs:
-      were-only-docs-updated: ${{ steps.were-only-docs-updated-action.outputs.were-only-docs-updated }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 2.  
-      - name: Get commit range
-        id: get-commit-range-action
-        uses: ./.github/actions/get-commit-range-action
-      - name: Were only docs updated
-        id: were-only-docs-updated-action
-        uses: ./.github/actions/were-only-docs-updated-action
-        with:
-          commit-range: ${{ steps.get-commit-range-action.outputs.commit-range }}
+    name: Pre-process
+    uses: vmware/singleton/.github/workflows/pre-process.yml@devops
 
+  check-header:
+    name: Check Header
+    needs: pre-process
+    if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
+    uses: vmware/singleton/.github/workflows/check.yml@devops
+    
   check-header:
     name: Check Header
     runs-on: ubuntu-latest
