@@ -47,7 +47,7 @@ jobs:
       - name: Upload Codecov 
         uses: codecov/codecov-action@v3
         with:
-          files: ./g11n-ws/vip-manager-l10n/build/reports/jacoco.xml, ./g11n-ws/vip-manager-lite-i18n/build/reports/jacoco.xml, ./g11n-ws/vip-manager-i18n/build/reports/jacoco.xml
+          files: g11n-ws/vip-manager-l10n/build/reports/jacoco.xml, g11n-ws/vip-manager-lite-i18n/build/reports/jacoco.xml, g11n-ws/vip-manager-i18n/build/reports/jacoco.xml
           flags: g11n-ws
           name: g11n-ws
           verbose: true
