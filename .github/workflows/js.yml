@@ -35,9 +35,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
-    strategy:
-      matrix:
-        node-version: []
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
