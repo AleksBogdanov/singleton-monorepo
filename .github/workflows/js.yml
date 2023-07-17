@@ -40,7 +40,7 @@ jobs:
         working-directory: g11n-js-client
     strategy:
       matrix:
-      node-version: [14.x]
+        node-version: [14.x]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
