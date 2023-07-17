@@ -91,6 +91,7 @@ jobs:
   codacy-analysis-cli:
     name: Codacy Analysis CLI
     runs-on: ubuntu-latest
+    needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
     permissions:
       actions: read
