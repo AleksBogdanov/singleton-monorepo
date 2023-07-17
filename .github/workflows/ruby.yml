@@ -1,4 +1,5 @@
-name: Singleton-Ruby-Client
+name: Singleton Ruby Client
+
 on:
   push:
     paths:

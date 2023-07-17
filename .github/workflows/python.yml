@@ -1,4 +1,4 @@
-name: Singleton-Python-Client
+name: Singleton Python Client
 
 on:
   push:
