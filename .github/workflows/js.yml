@@ -8,7 +8,7 @@ on:
     paths:
     - '.github/workflows/js.yml'
     - 'g11n-js-client/**'
-    - 'server/**'
+    - 'server/**' 
   pull_request:
     paths: 
     - '.github/workflows/js.yml'
@@ -37,16 +37,16 @@ jobs:
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: []
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           sparse-checkout: g11n-js-client
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14.x
           cache: 'npm'
       - name: Unit test
         run: |
