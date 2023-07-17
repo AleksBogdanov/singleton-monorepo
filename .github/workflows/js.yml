@@ -35,16 +35,24 @@ jobs:
     runs-on: ubuntu-latest
     needs: pre-process
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
+    defaults:
+      run:
+        working-directory: g11n-js-client
+    strategy:
+      matrix:
+      node-version: [14.x]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          sparse-checkout: g11n-js-client
+          sparse-checkout:
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
       - name: Unit test
         run: |
           npm install --registry https://registry.npmjs.org
