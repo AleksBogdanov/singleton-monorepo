@@ -55,7 +55,7 @@ jobs:
       - name: Upload Codecov report for angular-client
         uses: codecov/codecov-action@v2
         with:
-          files: ./coverage/angular-client/lcov.info
+          files: coverage/angular-client/lcov.info
           flags: g11n-angular-client
           
 

@@ -52,11 +52,11 @@ jobs:
           coverage report -m
           coverage xml -o coverage.xml
           echo $str Unit Test End $str
-      - name: Upload Codecov report for Python-client
+      -
         uses: codecov/codecov-action@v2
         with:
           files: sgtn4python/test/coverage.xml
-          flags: coverage
+          flags: g11n-python
 
   security-analysis:
     name: Security Analysis
