@@ -49,7 +49,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-          cache-dependency-path: 'package-lock.json'
+          cache-dependency-path: 'g11n-js-client/package-lock.json'
       - name: Unit test
         run: |
           npm install --registry https://registry.npmjs.org
