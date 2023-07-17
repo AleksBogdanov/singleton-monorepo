@@ -35,9 +35,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
+        with:
+          sparse-checkout: g11n-angular-client
       - name: Install node_js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '10'
       - name: Unit test
@@ -70,19 +71,19 @@ jobs:
       security-events: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install node_js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '10'
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
+        uses: github/codeql-action/init@v2
         with:
-          languages: javascript,typescript
+          languages: javascript, typescript
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v1
+        uses: github/codeql-action/autobuild@v2
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v1
+        uses: github/codeql-action/analyze@v2
 
   codacy-analysis-cli:
     name: Codacy Analysis CLI
