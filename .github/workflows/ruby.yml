@@ -82,6 +82,11 @@ jobs:
   codacy-analysis-cli:
     name: Codacy Analysis CLI
     runs-on: ubuntu-latest
+    if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     steps:
       - name: Checkout code
         uses: actions/checkout@main
@@ -108,7 +113,10 @@ jobs:
     if: needs.pre-process.outputs.were-only-docs-updated != 'yes'
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          sparse-checkout: server
+                           g11n-ruby-client
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -144,3 +152,4 @@ jobs:
           sed -i 's|path => "../../../../ruby_client/singleton|path => "/home/runner/work/singleton/singleton|g' Gemfile
           bundle install
           bundle exec rspec spec
+          

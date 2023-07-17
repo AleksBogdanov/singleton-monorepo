@@ -56,7 +56,7 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           files: sgtn4python/test/coverage.xml
-          flags: g11n-python
+          flags: g11n-python-client
 
   security-analysis:
     name: Security Analysis
